@@ -1,0 +1,261 @@
+<!-- Start - views/index.handlebars -->
+<style>
+	/* ==================== VARIÁVEIS ==================== */
+	:root {
+		--bg-dark: #0f0f0f;
+		--bg-darker: #080808;
+		--primary: #6c5ce7;
+		--secondary: #00cec9;
+		--text-primary: #f5f6fa;
+		--text-secondary: #b2bec3;
+	}
+
+	/* ==================== ESTILOS GERAIS ==================== */
+	.home {
+		width: 90vw;
+		margin: 0 auto;
+		padding: 3vw 0;
+		background-color: var(--bg-dark);
+		color: var(--text-primary);
+		position: relative;
+	}
+
+	/* ==================== LINK ADMIN ==================== */
+	.admin-link {
+		position: fixed;
+		bottom: 2vw;
+		right: 2vw;
+		background-color: rgba(108, 92, 231, 0.2);
+		color: var(--primary);
+		padding: 0.8vw 1.5vw;
+		border-radius: 2vw;
+		font-size: 1.2vw;
+		text-decoration: none;
+		border: 0.1vw solid var(--primary);
+		transition: all 0.3s;
+		z-index: 100;
+	}
+
+	.admin-link:hover {
+		background-color: rgba(108, 92, 231, 0.4);
+	}
+
+	/* ==================== DESTAQUES ==================== */
+	.hero {
+		height: 40vw;
+		background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/img/hero-bg.jpg');
+		background-size: cover;
+		background-position: center;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-bottom: 5vw;
+		border-radius: 1vw;
+	}
+
+	.hero-content {
+		text-align: center;
+	}
+
+	.hero-title {
+		font-size: 4vw;
+		margin-bottom: 2vw;
+		color: var(--primary);
+	}
+
+	.hero-subtitle {
+		font-size: 1.8vw;
+		color: var(--text-secondary);
+	}
+
+	/* ==================== SEÇÕES ==================== */
+	.section {
+		margin-bottom: 5vw;
+	}
+
+	.section-title {
+		font-size: 2.5vw;
+		margin-bottom: 2vw;
+		color: var(--secondary);
+		padding-bottom: 1vw;
+		border-bottom: 0.2vw solid var(--secondary);
+	}
+
+	/* ==================== JOGOS ==================== */
+	.games-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(18vw, 1fr));
+		gap: 2vw;
+	}
+
+	.game-card {
+		background: var(--bg-darker);
+		border-radius: 1vw;
+		overflow: hidden;
+		transition: transform 0.3s;
+	}
+
+	.game-card:hover {
+		transform: scale(1.05);
+	}
+
+	.game-cover {
+		width: 100%;
+		height: 24vw;
+		object-fit: cover;
+	}
+
+	.game-info {
+		padding: 1.5vw;
+	}
+
+	.game-title {
+		font-size: 1.5vw;
+		margin-bottom: 0.5vw;
+	}
+
+	.game-meta {
+		font-size: 1.2vw;
+		color: var(--text-secondary);
+	}
+
+	/* ==================== POSTAGENS ==================== */
+	.posts-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(25vw, 1fr));
+		gap: 2vw;
+	}
+
+	.post-card {
+		background: var(--bg-darker);
+		border-radius: 1vw;
+		padding: 2vw;
+	}
+
+	.post-title {
+		font-size: 1.8vw;
+		margin-bottom: 1vw;
+		color: var(--primary);
+	}
+
+	.post-excerpt {
+		font-size: 1.3vw;
+		color: var(--text-secondary);
+		margin-bottom: 1.5vw;
+	}
+
+	.post-meta {
+		font-size: 1.1vw;
+		color: var(--secondary);
+	}
+
+	/* ==================== RESPONSIVIDADE ==================== */
+	@media (max-width: 1024px) and (orientation: portrait) {
+		.home {
+			width: 95vw;
+			padding: 5vw 0;
+		}
+
+		.admin-link {
+			font-size: 2.5vw;
+			padding: 1.5vw 3vw;
+		}
+
+		.hero {
+			height: 60vw;
+		}
+
+		.hero-title {
+			font-size: 6vw;
+		}
+
+		.hero-subtitle {
+			font-size: 3vw;
+		}
+
+		.section-title {
+			font-size: 4vw;
+		}
+
+		.games-grid {
+			grid-template-columns: repeat(auto-fill, minmax(30vw, 1fr));
+		}
+
+		.game-cover {
+			height: 40vw;
+		}
+
+		.game-title {
+			font-size: 3vw;
+		}
+
+		.game-meta {
+			font-size: 2.5vw;
+		}
+
+		.posts-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.post-title {
+			font-size: 3.5vw;
+		}
+
+		.post-excerpt {
+			font-size: 2.5vw;
+		}
+
+		.post-meta {
+			font-size: 2.2vw;
+		}
+	}
+</style>
+
+<div class="home">
+	<!-- Link Admin Discreto -->
+	<a href="/admin" class="admin-link">Admin</a>
+
+	<!-- Destaque Hero -->
+	<div class="hero">
+		<div class="hero-content">
+			<h1 class="hero-title">GameHub</h1>
+			<p class="hero-subtitle">Descubra os melhores jogos e conteúdos gamers</p>
+		</div>
+	</div>
+
+	<!-- Seção Jogos -->
+	<section class="section">
+		<h2 class="section-title">Jogos em Destaque</h2>
+		<div class="games-grid">
+			<!-- Loop de jogos -->
+			{{#each pcs}}
+				<div class="game-card">
+					<img src="{{this.imagem}}" alt="{{this.nome}}" class="game-cover">
+					<div class="game-info">
+						<h3 class="game-title">{{this.nome}}</h3>
+						<p class="game-meta">{{this.ano}} • ⭐{{this.nota}}/10</p>
+					</div>
+				</div>
+			{{/each}}
+		</div>
+	</section>
+
+	<!-- Seção Postagens -->
+	<section class="section">
+		<h2 class="section-title">Últimas Postagens</h2>
+		<div class="posts-grid">
+			<!-- Loop de postagens -->
+			{{#each postagens}}
+				<a href="/postagem/{{this.id}}">
+					<div class="post-card">
+						<h3 class="post-title">{{this.titulo}}</h3>
+						<p class="post-excerpt">{{this.conteudo}}</p>
+						<p class="post-meta">{{this.createdAt}}</p>
+					</div>
+				</a>
+			{{/each}}
+		</div>
+		<p><a href="/postagens">Ver mais</a></p>
+	</section>
+</div>
+<!-- End - views/index.handlebars -->

@@ -1,0 +1,130 @@
+<!-- Start - views/admin/index.handlebars -->
+<style>
+	/* ==================== ESTILOS GERAIS ==================== */
+	.admin-home {
+		padding: 2vw;
+	}
+
+	h1 {
+		color: #333;
+		font-size: 2.5vw;
+		margin-bottom: 2vw;
+		padding-bottom: 1vw;
+		border-bottom: 0.1vw solid #eee;
+	}
+
+	/* ==================== CARDS DE NAVEGAÇÃO ==================== */
+	.admin-cards {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(25vw, 1fr));
+		gap: 2vw;
+		margin-top: 3vw;
+	}
+
+	.admin-card {
+		background: #fff;
+		border-radius: 0.8vw;
+		padding: 2vw;
+		box-shadow: 0 0.5vw 1.5vw rgba(0, 0, 0, 0.1);
+		transition: all 0.3s ease;
+		text-align: center;
+		border: 0.1vw solid #e0e0e0;
+	}
+
+	.admin-card:hover {
+		transform: translateY(-0.5vw);
+		box-shadow: 0 1vw 2vw rgba(0, 0, 0, 0.15);
+	}
+
+	.admin-card-icon {
+		font-size: 4vw;
+		margin-bottom: 1.5vw;
+		color: #3498db;
+	}
+
+	.admin-card-title {
+		font-size: 1.8vw;
+		font-weight: 600;
+		margin-bottom: 1vw;
+		color: #2c3e50;
+	}
+
+	.admin-card-desc {
+		font-size: 1.2vw;
+		color: #7f8c8d;
+		margin-bottom: 2vw;
+	}
+
+	.admin-card-btn {
+		display: inline-block;
+		padding: 1vw 2vw;
+		background-color: #3498db;
+		color: white;
+		border-radius: 0.5vw;
+		text-decoration: none;
+		font-size: 1.2vw;
+		transition: all 0.2s ease;
+	}
+
+	.admin-card-btn:hover {
+		background-color: #2980b9;
+	}
+
+	/* ==================== RESPONSIVIDADE ==================== */
+	@media (max-width: 768px) {
+		h1 {
+			font-size: 4vw;
+		}
+
+		.admin-cards {
+			grid-template-columns: 1fr;
+			gap: 3vw;
+		}
+
+		.admin-card {
+			padding: 4vw;
+		}
+
+		.admin-card-icon {
+			font-size: 8vw;
+		}
+
+		.admin-card-title {
+			font-size: 4vw;
+		}
+
+		.admin-card-desc {
+			font-size: 3vw;
+		}
+
+		.admin-card-btn {
+			padding: 2vw 4vw;
+			font-size: 3vw;
+		}
+	}
+</style>
+
+<div class="box admin-home">
+	<h1>Admin</h1>
+	
+	<div class="admin-cards">
+		<div class="admin-card">
+			<div class="admin-card-icon">
+				<i class="fas fa-desktop"></i>
+			</div>
+			<h2 class="admin-card-title">PC</h2>
+			<p class="admin-card-desc">Gerencie seus jogos de PC</p>
+			<a href="/admin/pc" class="admin-card-btn">Acessar</a>
+		</div>
+		
+		<div class="admin-card">
+			<div class="admin-card-icon">
+				<i class="fas fa-newspaper"></i>
+			</div>
+			<h2 class="admin-card-title">Postagens</h2>
+			<p class="admin-card-desc">Gerencie as postagens do blog</p>
+			<a href="/admin/postagens" class="admin-card-btn">Acessar</a>
+		</div>
+	</div>
+</div>
+<!-- End - views/admin/index.handlebars -->

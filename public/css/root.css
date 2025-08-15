@@ -1,0 +1,40 @@
+/*Start - public/css/root.css*/
+:root{
+	
+--branco_lente01:rgba(255,255,255,0.1);
+--branco_lente02:rgba(255,255,255,0.2);
+--branco_lente03:rgba(255,255,255,0.3);
+--branco_lente04:rgba(255,255,255,0.4);
+--branco_lente05:rgba(255,255,255,0.5);
+--branco_lente06:rgba(255,255,255,0.6);
+--branco_lente07:rgba(255,255,255,0.7);
+--branco_lente08:rgba(255,255,255,0.8);
+--branco_lente09:rgba(255,255,255,0.9);
+
+--preto_lente01: rgba(0,0,0,0.1);
+--preto_lente02: rgba(0,0,0,0.2);
+--preto_lente03: rgba(0,0,0,0.3);
+--preto_lente04: rgba(0,0,0,0.4);
+--preto_lente05: rgba(0,0,0,0.5);
+--preto_lente06: rgba(0,0,0,0.6);
+--preto_lente07: rgba(0,0,0,0.7);
+--preto_lente08: rgba(0,0,0,0.8);
+--preto_lente09: rgba(0,0,0,0.9);
+
+--teste00:rgba(255,0,0,0);
+--teste01:rgba(255,0,0,0.1);
+--teste02:rgba(255,0,0,0.2);
+--teste03:rgba(255,0,0,0.3);
+
+--facebook:rgb(50, 82, 159);
+--linkedin:rgb(0, 119, 181);
+--twitter:rgb(29, 161, 242);
+--whatsapp:rgb(37, 211, 102);
+
+--segoe:-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+
+--fontSize:0.8vw;
+--lineHeight:0.9vw;
+
+}
+/*End - public/css/root.css*/

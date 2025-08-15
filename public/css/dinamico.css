@@ -1,0 +1,152 @@
+/*Start - public/css/dinamico.css*/
+*{
+box-sizing: border-box;
+-webkit-box-sizing: border-box;
+}
+button{
+border:0vw;
+}
+iframe{
+width:100%;
+height:100%;
+border:0vw;
+}
+svg{
+vertical-align:middle;
+}
+.banner-interno{
+width:100%;
+height:19.6vw;
+background-color:rgba(255,0,0,0.5);
+background-repeat:no-repeat;
+background-size:100% auto;
+background-position:top left;
+}
+.box-tela-grande{
+max-width:1920px; /*1920px - setar aqui o width maximo*/
+margin:0 auto;
+}
+.box{
+width:83vw;
+height:auto;
+margin:0 auto;
+background-color:rgba(255,0,0,0);
+overflow:hidden;
+}
+.box-elastica{
+background-color:rgba(0,255,255,0.5);
+width:auto;
+height:100%;
+}
+.texto-centralizado{
+text-align:center;
+}
+.btn-amarelo{
+background-color:rgba(0,255,255,1);
+width:10vw;
+height:10vw;
+}
+.btn-azul{
+background-color:rgba(0,255,255,1);
+width:10vw;
+height:10vw;
+}
+.fonte-amarela{
+color:rgba(0,255,255,1);
+}
+.fonte-azul{
+color:rgba(0,255,255,1);
+}
+.fonte-vermelha{
+color:rgba(255,0,0,1);
+}
+.negrito{ font-weight:bold }
+.italico{ font-style:italic }
+.sublinhado{ text-decoration:underline }
+.riscado{ text-decoration:line-through; }
+.centralizado{ text-align:center; }
+.esquerda{ text-align:left; }
+.direita{ text-align:right; }
+.justificar{ text-align:justify; }
+
+/*Start - GRID*/
+.linha{ width:100%; height:auto; line-height:2vw; float:left; margin-top:0.5vw; margin-bottom:0.5vw;}
+.separador{ width:100%; height:2vw; line-height:2vw; float:left; margin-top:0.5vw; margin-bottom:0.5vw;}
+.col05{ width:4%; height:100%; float:left; padding-left:0.5%; padding-right:0.5%; }
+.col10{ width:9%; height:100%; float:left; padding-left:0.5%; padding-right:0.5%; }
+.col15{ width:14%; height:100%; float:left; padding-left:0.5%; padding-right:0.5%; }
+.col16{ width:15.66%; height:100%; float:left; padding-left:0.5%; padding-right:0.5%; }
+.col20{ width:19%; height:100%; float:left; padding-left:0.5%; padding-right:0.5%; }
+.col25{ width:24%; height:100%; float:left; padding-left:0.5%; padding-right:0.5%; }
+.col30{ width:29%; height:100%; float:left; padding-left:0.5%; padding-right:0.5%; }
+.col33{ width:33.33%; height:100%; float:left; padding-left:0.5%; padding-right:0.5%; }
+.col35{ width:34%; height:100%; float:left; padding-left:0.5%; padding-right:0.5%; }
+.col40{ width:39%; height:100%; float:left; padding-left:0.5%; padding-right:0.5%; }
+.col45{ width:44%; height:100%; float:left; padding-left:0.5%; padding-right:0.5%; }
+.col50{ width:49%; height:100%; float:left; padding-left:0.5%; padding-right:0.5%; }
+.col55{ width:54%; height:100%; float:left; padding-left:0.5%; padding-right:0.5%; }
+.col60{ width:59%; height:100%; float:left; padding-left:0.5%; padding-right:0.5%; }
+.col65{ width:64%; height:100%; float:left; padding-left:0.5%; padding-right:0.5%; }
+.col66{ width:64.66%; height:100%; float:left; padding-left:0.5%; padding-right:0.5%; }
+.col70{ width:69%; height:100%; float:left; padding-left:0.5%; padding-right:0.5%; }
+.col75{ width:74%; height:100%; float:left; padding-left:0.5%; padding-right:0.5%; }
+.col80{ width:79%; height:100%; float:left; padding-left:0.5%; padding-right:0.5%; }
+.col85{ width:84%; height:100%; float:left; padding-left:0.5%; padding-right:0.5%; }
+.col90{ width:89%; height:100%; float:left; padding-left:0.5%; padding-right:0.5%; }
+.col95{ width:94%; height:100%; float:left; padding-left:0.5%; padding-right:0.5%; }
+.col100{ width:99%; height:100%; float:left; padding-left:0.5%; padding-right:0.5%; }
+/*End - GRID*/
+
+/*Start - DEBUG*/
+.xdebug-error.xe-warning{
+position:absolute;
+z-index:999;
+top:0vw;
+left:0vw;
+}
+/*End - DEBUG*/
+
+@media only screen and (max-width:1279px) {
+	
+.box{
+width:90vw;
+height:auto;
+}
+
+.col05,
+.col10,
+.col15,
+.col20,
+.col25,
+.col30,
+.col35,
+.col40,
+.col45,
+.col50,
+.col55,
+.col60,
+.col65,
+.col70,
+.col75,
+.col80,
+.col85,
+.col90,
+.col95,
+.col100,
+.col33{
+width:100%;
+height:auto;
+}
+
+}
+
+/*Start - SWITCH*/
+.on{
+display:block !important;
+}
+.off{
+display:none !important;
+}
+/*End - SWITCH*/
+
+/*End - public/css/dinamico.css*/

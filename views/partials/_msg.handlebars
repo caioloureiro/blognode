@@ -1,0 +1,55 @@
+<!-- Start - views/partials/_msg.handlebars !-->
+<style>
+.alerta {
+	width:100%;
+	border: 0.1vw solid gray;
+	background-color:rgba(243,243,253,1);
+	padding:1vw;
+	font-weight:400;
+	font-size:0.8vw;
+	line-height:1vw;
+	color:black;
+	text-align: left;
+	letter-spacing:0vw;
+	border-radius:0.3vw;
+	margin-bottom:2vw;
+}
+
+.alerta.vermelho{
+	color:red;
+	border-color:red;
+	background-color:rgba(255,0,0,0.1);
+}
+
+.alerta.verde{
+	color:green;
+	border-color:green;
+	background-color:rgba(37, 211, 102, 0.1);
+}
+
+@media (max-width: 768px) {
+	
+	.alerta {
+		border-size: 0.3vw;
+		padding:3vw;
+		font-size:4vw;
+		line-height:5vw;
+		border-radius:1vw;
+		margin-bottom:6vw;
+	}
+	
+}
+</style>
+
+{{#if success_msg}}
+<div class="box">
+	<div class="alerta verde">{{success_msg}}</div>
+</div>
+{{/if}}
+
+{{#if error_msg}}
+<div class="box">
+	<div class="alerta vermelho">{{error_msg}}</div>
+</div>
+{{/if}}
+<!-- End - views/partials/_msg.handlebars !-->

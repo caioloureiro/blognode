@@ -1,0 +1,109 @@
+<!-- Start - views/partials/_navbar.handlebars !-->
+<style>
+	:root {
+		--cor-primaria: #2c3e50;
+		--cor-hover: #34495e;
+		--cor-texto: #ecf0f1;
+		--cor-texto-hover: #ffffff;
+		--cor-ativa: #3498db;
+	}
+
+	.navbar {
+		width: 100%;
+		height: 4vw;
+		background-color: var(--cor-primaria);
+		display: flex;
+		justify-content: center;
+		box-shadow: 0 0.2vw 1vw rgba(0, 0, 0, 0.1);
+		position: relative;
+		z-index: 1000;
+		margin-bottom:3vw;
+	}
+
+	.navbar-box {
+		display: flex;
+		height: 100%;
+		max-width: 90vw;
+		width: 100%;
+	}
+
+	.navbar-btn {
+		height: 100%;
+		padding: 0 1.5vw;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		transition: all 0.3s ease;
+	}
+
+	.navbar-btn a {
+		color: var(--cor-texto);
+		text-decoration: none;
+		font-size: 1.1vw;
+		font-weight: 500;
+		letter-spacing: 0.05vw;
+		text-transform: uppercase;
+		transition: all 0.3s ease;
+		padding: 0.5vw 0;
+	}
+
+	.navbar-btn:hover {
+		background-color: var(--cor-hover);
+	}
+
+	.navbar-btn:hover a {
+		color: var(--cor-texto-hover);
+	}
+
+	.navbar-btn:active,
+	.navbar-btn.active {
+		background-color: var(--cor-ativa);
+	}
+
+	.navbar-btn::after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 0;
+		height: 0.2vw;
+		background: var(--cor-texto-hover);
+		transition: width 0.3s ease;
+	}
+
+	.navbar-btn:hover::after {
+		width: 70%;
+	}
+
+	@media (max-width: 768px) {
+		.navbar {
+			height: 8vw;
+		}
+
+		.navbar-btn a {
+			font-size: 2.5vw;
+			padding: 1vw 0;
+		}
+
+		.navbar-box {
+			max-width: 100%;
+			justify-content: space-around;
+		}
+
+		.navbar-btn {
+			padding: 0 3vw;
+		}
+	}
+</style>
+
+<div class="navbar">
+	<div class="navbar-box">
+		<div class="navbar-btn"><a href="/">Home</a></div>
+		<div class="navbar-btn"><a href="/admin">Login</a></div>
+		<div class="navbar-btn"><a href="/admin/pc">PC</a></div>
+		<div class="navbar-btn"><a href="/admin/postagens">Postagens</a></div>
+	</div>
+</div>
+<!-- End - views/partials/_navbar.handlebars !-->

@@ -1,0 +1,19 @@
+<!-- Start - postagem/index.handlebars -->
+<style>
+	h1{
+		margin-bottom:2vw;
+	}
+</style>
+
+<div class="postagens box">
+	
+	<h1>Postagens</h1>
+	
+	{{#each postagens}}
+		<p><a href="/postagem/{{id}}">{{titulo}}</a></p>
+	{{else}}
+		<p>Nenhuma postagem.</p>
+	{{/each}}
+	
+</div>
+<!-- End - postagem/index.handlebars -->

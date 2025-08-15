@@ -1,0 +1,27 @@
+/*Start - public/css/global.css*/
+*, *::before, *::after{
+margin:0vw;
+padding:0vw;
+box-sizing: border-box;
+-webkit-box-sizing: border-box;
+}
+a,
+a:active,
+a:visited,
+a:focus{
+text-decoration: none;
+color:inherit;
+font-weight: inherit;
+font-family:var(--segoe);
+}
+body{
+margin:0;
+padding:0;
+font-family:var(--segoe);
+font-size: 1vw;
+line-height: 1.5vw;
+color:black;
+background-color:transparent;
+overflow-x: hidden;
+}
+/*End - public/css/global.css*/

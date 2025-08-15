@@ -1,0 +1,288 @@
+<!-- Start - views/admin/pcAdd.handlebars !-->
+<style>
+	/* ==================== ESTILOS GERAIS ==================== */
+	h1 {
+		color: #333;
+		font-size: 2.5vw;
+		margin-bottom: 2vw;
+		padding-bottom: 1vw;
+		border-bottom: 0.1vw solid #eee;
+	}
+
+	/* ==================== MENU ADMIN ==================== */
+	.admin-menu {
+		margin-bottom: 2vw;
+	}
+
+	.admin-menu-btn {
+		display: inline-block;
+	}
+
+	.admin-menu-btn a {
+		display: inline-block;
+		padding: 1vw 2vw;
+		background-color: #6c757d;
+		color: white;
+		text-decoration: none;
+		border-radius: 0.5vw;
+		transition: background-color 0.3s;
+		font-size: 1.2vw;
+	}
+
+	.admin-menu-btn a:hover {
+		background-color: #5a6268;
+	}
+
+	/* ==================== FORMULÁRIO ==================== */
+	.admin-body {
+		padding: 2vw;
+	}
+
+	.form-group {
+		margin-bottom: 1.5vw;
+	}
+
+	.form-group label {
+		display: block;
+		margin-bottom: 0.5vw;
+		font-weight: 600;
+		color: #495057;
+		font-size: 1.3vw;
+	}
+
+	.form-control {
+		width: 100%;
+		padding: 1vw;
+		border: 0.1vw solid #ced4da;
+		border-radius: 0.5vw;
+		font-size: 1.3vw;
+		transition: all 0.15s ease-in-out;
+	}
+
+	.form-control:focus {
+		border-color: #80bdff;
+		outline: 0;
+		box-shadow: 0 0 0 0.2vw rgba(0, 123, 255, 0.25);
+	}
+
+	textarea.form-control {
+		min-height: 10vw;
+		resize: vertical;
+	}
+
+	select.form-control {
+		height: 4vw;
+	}
+
+	.btn {
+		display: inline-block;
+		font-weight: 400;
+		text-align: center;
+		white-space: nowrap;
+		vertical-align: middle;
+		user-select: none;
+		border: 0.1vw solid transparent;
+		padding: 1vw 2vw;
+		font-size: 1.3vw;
+		line-height: 1.5;
+		border-radius: 0.5vw;
+		transition: all 0.15s ease-in-out;
+		cursor: pointer;
+	}
+
+	.btn-primary {
+		color: #fff;
+		background-color: #007bff;
+		border-color: #007bff;
+	}
+
+	.btn-primary:hover {
+		background-color: #0069d9;
+		border-color: #0062cc;
+	}
+
+	/* ==================== NOTA (RADIO BUTTONS) ==================== */
+	.nota-radio-group {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5vw;
+		margin-top: 0.5vw;
+	}
+
+	.nota-radio {
+		display: flex;
+		align-items: center;
+	}
+
+	.nota-radio input[type="radio"] {
+		margin-right: 0.5vw;
+		width: 1.5vw;
+		height: 1.5vw;
+	}
+
+	.nota-radio label {
+		margin-bottom: 0;
+		font-weight: normal;
+		font-size: 1.2vw;
+	}
+
+	/* ==================== MENSAGENS DE ALERTA ==================== */
+	.alerta {
+		width: 100%;
+		border: 0.1vw solid gray;
+		background-color: rgba(243, 243, 253, 1);
+		padding: 1vw;
+		font-weight: 400;
+		font-size: 0.8vw;
+		line-height: 1vw;
+		color: black;
+		text-align: left;
+		letter-spacing: 0vw;
+		border-radius: 0.3vw;
+		margin-bottom: 2vw;
+	}
+
+	.alerta.vermelho {
+		color: red;
+		border-color: red;
+		background-color: rgba(255, 0, 0, 0.1);
+	}
+
+	/* ==================== RESPONSIVIDADE ==================== */
+	@media (max-width: 768px) {
+		h1 {
+			font-size: 4vw;
+		}
+
+		.admin-menu-btn a {
+			font-size: 2.5vw;
+			padding: 1.5vw 3vw;
+		}
+
+		.form-group label,
+		.form-control,
+		.btn {
+			font-size: 2.5vw;
+		}
+
+		select.form-control {
+			height: 6vw;
+		}
+
+		.nota-radio input[type="radio"] {
+			width: 2.5vw;
+			height: 2.5vw;
+		}
+
+		.nota-radio label {
+			font-size: 2vw;
+		}
+
+		.alerta {
+			border-width: 0.3vw;
+			padding: 3vw;
+			font-size: 4vw;
+			line-height: 5vw;
+			border-radius: 1vw;
+			margin-bottom: 6vw;
+		}
+	}
+</style>
+
+<div class="box">
+	<h1>PC - Criar</h1>
+
+	{{#if error_msg}}
+		<div class="alerta vermelho">{{error_msg}}</div>
+	{{/if}}
+
+	{{#each erros}}
+		<div class="alerta vermelho">{{text}}</div>
+	{{/each}}
+
+	<div class="admin-menu">
+		<div class="admin-menu-btn"><a href="/admin/pc">Voltar</a></div>
+	</div>
+	
+	<div class="admin-body">
+		<form action="/admin/pc/add/set" method="POST">
+			<div class="form-group">
+				<label for="nome">Nome do Jogo:</label>
+				<input type="text" id="nome" name="nome" required class="form-control">
+			</div>
+
+			<div class="form-group">
+				<label for="imagem">URL da Imagem:</label>
+				<input type="url" id="imagem" name="imagem" required class="form-control">
+			</div>
+
+			<div class="form-group">
+				<label for="linguagem">Linguagem:</label>
+				<input type="text" id="linguagem" name="linguagem" required class="form-control" value="Português">
+			</div>
+
+			<div class="form-group">
+				<label for="ano">Ano de Lançamento:</label>
+				<input type="number" id="ano" name="ano" required min="1900" max="2099" class="form-control">
+			</div>
+
+			<div class="form-group">
+				<label for="destaque">Destaque:</label>
+				<select id="destaque" name="destaque" required class="form-control">
+					<option value="0">Não</option>
+					<option value="1">Sim</option>
+				</select>
+			</div>
+
+			<div class="form-group">
+				<label for="instalado">Instalado:</label>
+				<select id="instalado" name="instalado" required class="form-control">
+					<option value="0">Não</option>
+					<option value="1">Sim</option>
+				</select>
+			</div>
+
+			<div class="form-group">
+				<label for="link">Link do Jogo (URL):</label>
+				<input type="url" id="link" name="link" class="form-control">
+			</div>
+
+			<div class="form-group">
+				<label for="torrent">Link do Torrent (URL):</label>
+				<input type="url" id="torrent" name="torrent" class="form-control">
+			</div>
+
+			<div class="form-group">
+				<label for="trailer">Link do Trailer (URL):</label>
+				<input type="url" id="trailer" name="trailer" class="form-control">
+			</div>
+
+			<div class="form-group">
+				<label for="comprado">Onde foi comprado:</label>
+				<input type="text" id="comprado" name="comprado" class="form-control">
+			</div>
+
+			<div class="form-group">
+				<label>Nota (1-10):</label>
+				<div class="nota-radio-group">
+					{{#each (range 1 10)}}
+						<div class="nota-radio">
+							<input type="radio" id="nota-{{this}}" name="nota" value="{{this}}" {{#if (eq this 5)}}checked{{/if}}>
+							<label for="nota-{{this}}">{{this}}</label>
+						</div>
+					{{/each}}
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="obs">Observações:</label>
+				<textarea id="obs" name="obs" class="form-control"></textarea>
+			</div>
+
+			<div class="form-group">
+				<button type="submit" class="btn btn-primary">Cadastrar Jogo</button>
+			</div>
+		</form>
+	</div>
+</div>
+<!-- End - views/admin/pcAdd.handlebars !-->

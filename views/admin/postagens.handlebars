@@ -1,0 +1,239 @@
+<!-- Start - views/admin/postagens.handlebars !-->
+<style>
+	/* ==================== ESTILOS GERAIS ==================== */
+	h1 {
+		color: #333;
+		font-size: 2.5vw;
+		margin-bottom: 2vw;
+		padding-bottom: 1vw;
+		border-bottom: 0.1vw solid #eee;
+	}
+
+	/* ==================== MENU ADMIN ==================== */
+	.admin-menu {
+		display: flex;
+		gap: 1vw;
+		margin-bottom: 2vw;
+	}
+
+	.admin-menu-btn {
+		padding: 0.8vw 1.5vw;
+		background-color: #2c3e50;
+		border-radius: 0.5vw;
+		transition: all 0.3s ease;
+	}
+
+	.admin-menu-btn a {
+		color: #ecf0f1;
+		text-decoration: none;
+		font-size: 1.1vw;
+		font-weight: 500;
+		white-space: nowrap;
+	}
+
+	.admin-menu-btn:hover {
+		background-color: #34495e;
+		transform: translateY(-0.2vw);
+	}
+
+	/* ==================== TABELA ==================== */
+	.admin-tabela {
+		width: 100%;
+		border-collapse: collapse;
+		margin-top: 2vw;
+		font-size: 1.2vw;
+		table-layout: fixed;
+	}
+
+	.admin-tabela th {
+		background-color: #3498db;
+		color: white;
+		padding: 1.2vw;
+		text-align: left;
+	}
+
+	.admin-tabela td {
+		padding: 1vw;
+		border-bottom: 0.1vw solid #ecf0f1;
+		vertical-align: middle;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	.admin-tabela td:first-child {
+		width: 12vw;
+	}
+
+	.admin-tabela td:nth-child(2) {
+		max-width: 25vw;
+		white-space: nowrap;
+	}
+
+	.admin-tabela td:nth-child(3),
+	.admin-tabela td:nth-child(4) {
+		width: 8vw;
+		text-align: center;
+	}
+
+	.admin-tabela td:last-child {
+		width: 16vw;
+	}
+
+	.admin-tabela tr:nth-child(even) {
+		background-color: #f8f9fa;
+	}
+
+	.admin-tabela tr:hover {
+		background-color: #e1f5fe;
+	}
+
+	/* ==================== CÉLULAS ESPECÍFICAS ==================== */
+	.imagem-cell img {
+		width: 8vw;
+		height: 8vw;
+		object-fit: cover;
+		border-radius: 0.5vw;
+		box-shadow: 0 0.2vw 0.5vw rgba(0,0,0,0.1);
+	}
+
+	.acao-btn {
+		padding: 0.6vw 1vw;
+		border-radius: 0.3vw;
+		font-size: 1vw;
+		transition: all 0.2s ease;
+		text-decoration: none;
+		white-space: nowrap;
+		flex: 1;
+		text-align: center;
+	}
+
+	.editar-btn {
+		background-color: #f39c12;
+		color: white;
+	}
+
+	.excluir-btn {
+		background-color: #e74c3c;
+		color: white;
+	}
+
+	.acao-btn:hover {
+		transform: scale(1.05);
+		box-shadow: 0 0.2vw 0.5vw rgba(0,0,0,0.2);
+	}
+
+	/* ==================== ESTADO SEM DADOS ==================== */
+	.sem-dados {
+		text-align: center;
+		padding: 3vw;
+		color: #7f8c8d;
+		font-size: 1.3vw;
+	}
+
+	/* ==================== RESPONSIVIDADE ==================== */
+	@media (max-width: 768px) {
+		h1 {
+			font-size: 4vw;
+		}
+
+		.admin-menu {
+			gap: 2vw;
+		}
+
+		.admin-menu-btn {
+			padding: 1.5vw 3vw;
+		}
+
+		.admin-menu-btn a {
+			font-size: 2.5vw;
+		}
+
+		.admin-tabela {
+			font-size: 2.5vw;
+		}
+
+		.admin-tabela th,
+		.admin-tabela td {
+			padding: 2vw;
+			white-space: normal;
+		}
+
+		.admin-tabela td:first-child {
+			width: 15vw;
+		}
+
+		.admin-tabela td:nth-child(2) {
+			max-width: none;
+		}
+
+		.imagem-cell img {
+			width: 12vw;
+			height: 12vw;
+		}
+
+		.acao-cell {
+			flex-direction: column;
+			gap: 1vw;
+		}
+
+		.acao-btn {
+			padding: 1vw 2vw;
+			font-size: 2vw;
+		}
+
+		.sem-dados {
+			font-size: 3vw;
+		}
+	}
+</style>
+
+<div class="box postagens">
+	<h1>Postagens</h1>
+
+	<div class="admin-menu">
+		<div class="admin-menu-btn"><a href="/admin/postagens/add">Criar</a></div>
+		<div class="admin-menu-btn"><a href="/admin">Voltar</a></div>
+	</div>
+	
+	<div class="admin-body">
+		<table class="admin-tabela">
+			<thead>
+				<tr>
+					<th>Título</th>
+					<th>Conteúdo</th>
+					<th>Ações</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				{{#if postagens.length}}
+					{{#each postagens}}
+					<tr>
+						<td title="{{this.titulo}}">{{this.titulo}}</td>
+						<td title="{{this.conteudo}}">{{this.conteudo}}</td>
+						<td class="acao-cell">
+							<a 
+								href="/admin/postagens/editar/{{this.id}}" 
+								class="acao-btn editar-btn"
+							>Editar</a>
+							<a 
+								href="/admin/postagens/excluir/{{this.id}}" 
+								class="acao-btn excluir-btn"
+								onclick="return confirm(&apos;Tem certeza?&apos;)"
+							>Excluir</a>
+						</td>
+					</tr>
+					{{/each}}
+				{{else}}
+					<tr>
+						<td colspan="3" class="sem-dados">
+							<i class="fas fa-gamepad" style="font-size: 2vw; margin-bottom: 1vw;"></i><br>
+							Nenhuma postagem cadastrada
+						</td>
+					</tr>
+				{{/if}}
+			</tbody>
+		</table>
+	</div>
+</div>
+<!-- End - views/admin/postagens.handlebars !-->
