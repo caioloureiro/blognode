@@ -1,0 +1,103 @@
+<!-- Start - postagem/registro.handlebars -->
+<style>
+	.registro.box {
+		width: 60vw;
+		min-height: 50vw; /* Usando vw para altura relativa */
+		margin: 5vw auto;
+		padding: 2vw;
+		background: #f9f9f9;
+		border: 0.1vw solid #ddd;
+		border-radius: 0.5vw;
+		box-sizing: border-box;
+	}
+
+	.registro h1 {
+		text-align: center;
+		margin: 2vw 0;
+		font-size: 2vw;
+		color: #333;
+	}
+	
+	.registro .form-group {
+		margin-bottom: 2vw;
+	}
+	
+	.registro label {
+		display: block;
+		margin-bottom: 0.5vw;
+		font-size: 1.2vw;
+		font-weight: bold;
+	}
+	
+	.registro input[type="text"],
+	.registro input[type="number"],
+	.registro input[type="email"],
+	.registro input[type="password"] {
+		width: 100%;
+		padding: 1vw;
+		border: 0.1vw solid #ddd;
+		border-radius: 0.3vw;
+		font-size: 1.1vw;
+		box-sizing: border-box;
+	}
+	
+	.registro button {
+		width: 100%;
+		padding: 1.2vw;
+		background: #4CAF50;
+		color: white;
+		border: none;
+		border-radius: 0.3vw;
+		font-size: 1.2vw;
+		cursor: pointer;
+		margin-top: 1vw;
+	}
+	
+	.registro button:hover {
+		background: #45a049;
+	}
+</style>
+
+<div class="registro box">
+	
+	<h1>Registro</h1>
+
+	{{#each erros}}
+		<div class="alerta vermelho">{{texto}}</div>
+	{{/each}}
+	
+	<form id="registroForm" action="" method="POST">
+		<div class="form-group">
+			<label for="nome">Nome:</label>
+			<input type="text" id="nome" name="nome" required>
+		</div>
+		
+		<div class="form-group">
+			<label for="sobrenome">Sobrenome:</label>
+			<input type="text" id="sobrenome" name="sobrenome" required>
+		</div>
+		
+		<div class="form-group">
+			<label for="idade">Idade:</label>
+			<input type="number" id="idade" name="idade" min="1" required>
+		</div>
+		
+		<div class="form-group">
+			<label for="email">E-mail:</label>
+			<input type="email" id="email" name="email" required>
+		</div>
+		
+		<div class="form-group">
+			<label for="senha">Senha:</label>
+			<input type="text" id="senha" name="senha" required>
+		</div>
+		
+		<div class="form-group">
+			<label for="confirmarSenha">Confirmar Senha:</label>
+			<input type="text" id="confirmarSenha" name="confirmarSenha" required>
+		</div>
+		
+		<button type="submit">Registrar</button>
+	</form>
+</div>
+<!-- End - postagem/registro.handlebars -->

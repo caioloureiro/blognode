@@ -13,6 +13,7 @@ const { engine } = require("express-handlebars");
 const handlebars = require("handlebars");
 const bodyParser = require("body-parser");
 const admin = require("./routes/admin");
+const usuarios = require("./routes/usuario");
 const path = require("path");
 const fs = require("fs");
 const session = require("express-session");
@@ -139,8 +140,6 @@ app.get('/', async (req, res) => {
 	}
 });
 
-app.use('/admin', admin); //Admin do site (CMS)
-
 app.get('/404', (req, res) => {
 	req.flash('error_msg', 'Erro 404!');
 	res.redirect('/');
@@ -196,6 +195,9 @@ app.get('/postagens', async (req, res) => {
 app.get('/teste', (req, res) => {
 	res.send( 'Teste' );
 });
+
+app.use('/admin', admin); //Admin do site (CMS)
+app.use('/usuarios', usuarios); //Admin do site (CMS)
 /*End - ROTAS*/
 
 /*Start - SERVIDOR*/
